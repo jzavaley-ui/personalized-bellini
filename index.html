@@ -13,13 +13,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Cormorant+Garamond:wght@500;600&amp;family=Parisienne&amp;family=Josefin+Sans:wght@500;600&amp;family=Courier+Prime:wght@400;700&amp;family=Tangerine:wght@700&amp;family=Cinzel:wght@500;600&amp;display=swap" rel="stylesheet">
 <style>
+  @font-face { font-family: 'Monogram Serif'; src: url('assets/fonts/monogram-serif.ttf') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'Cursivo'; src: url('assets/fonts/cursivo.ttf') format('truetype'); font-display: swap; }
   html, body { margin: 0; padding: 0; background: #FAFAFA; }
   * { -webkit-font-smoothing: antialiased; }
   a { color: #242323; text-decoration: underline; }
   a:hover { color: #4E4E4E; }
   button { font: inherit; }
   input { font: inherit; }
-  input::placeholder { color: #B9B9B9; }
+  input::placeholder { color: #B9B9B9; letter-spacing: normal; }
   .pp-desk { display: block; }
   .pp-mob { display: none; }
   @media (max-width: 1099px) {
@@ -66,7 +68,7 @@
             </div>
             <div style="display:flex; flex-direction:column; gap:16px; align-items:flex-start; align-self:stretch;">
               <sc-for list="{{ thumbsB }}" as="t" hint-placeholder-count="5">
-                <div onClick="{{ t.pick }}" style="width:92px; height:92px; border-radius:8px; cursor:pointer; overflow:hidden; flex-shrink:0; background:#FFFFFF; box-shadow:{{ t.ring }};"><img src="assets/chair-main.png" alt="" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+                <div onClick="{{ t.pick }}" style="width:92px; height:92px; border-radius:8px; cursor:pointer; overflow:hidden; flex-shrink:0; background:#FFFFFF; box-shadow:{{ t.ring }};"><img src="assets/chair-front.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
               </sc-for>
             </div>
             <div style="height:36px; align-self:stretch; display:flex; align-items:center; justify-content:center; padding:8px; box-sizing:border-box;">
@@ -74,24 +76,23 @@
             </div>
           </div>
 
-          <div style="margin-left:56px; margin-top:9px; width:650px; height:650px; border-radius:8px; overflow:hidden; position:sticky; top:27px; flex-shrink:0; background:#FFFFFF;"><img src="assets/chair-main.png" alt="Personalized Chair" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;">
+          <div style="margin-left:56px; margin-top:9px; width:650px; height:650px; border-radius:8px; overflow:hidden; position:sticky; top:27px; flex-shrink:0; background:#FFFFFF;"><img src="assets/chair-front.jpg" alt="Personalized Chair" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;">
             <sc-if value="{{ overlayB }}" hint-placeholder-val="{{ true }}">
               <div style="position:absolute; inset:0;">
-                <div style="position:absolute; left:45%; top:32%; transform:translate(-50%,-50%); font-size:32px; line-height:1;">
-                  <span style="white-space:nowrap; font-family:{{ fontB }}; font-size:{{ emB }}; color:{{ colorB }}; letter-spacing:{{ lsB }}; text-shadow:0 1px 0 rgba(255,255,255,0.3), 0 -1px 1px rgba(0,0,0,0.35);">{{ textB }}</span>
+                <div style="position:absolute; left:50%; top:30%; transform:translate(-50%,-50%); font-size:32px; line-height:1;">
+                  <span style="display:inline-flex; align-items:baseline; white-space:nowrap; font-family:{{ fontB }}; font-size:{{ emB }}; color:{{ colorB }}; letter-spacing:{{ lsB }}; text-shadow:0 1px 0 rgba(255,255,255,0.3), 0 -1px 1px rgba(0,0,0,0.35);"><span style="font-size:{{ sideB }};">{{ textLB }}</span><span style="font-size:{{ midB }};">{{ textMB }}</span><span style="font-size:{{ sideB }};">{{ textRB }}</span></span>
                 </div>
                 <div style="position:absolute; left:20px; top:20px; height:23px; border-radius:8px; background:#EDE5D2; padding:4px 8px; display:flex; flex-direction:row; gap:6px; align-items:center; justify-content:center; box-sizing:border-box;">
                   <span style="font-size:12px; font-weight:600; line-height:1; color:#775200; text-transform:capitalize;">Live Preview</span>
                 </div>
-                <div style="position:absolute; right:20px; bottom:20px; width:240px; border-radius:8px; overflow:hidden; background:#FFFFFF; box-shadow:inset 0 0 0 1px #EEEEEE, -8px 12px 48px 0 rgba(0,0,0,0.08);">
-                  <div style="height:112px; overflow:hidden; position:relative; background:#FFFFFF;"><img src="assets/chair-main.png" alt="" style="position:absolute; left:-147.2%; top:-102.4%; width:420%; height:420%; object-fit:cover; display:block;">
-                    <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); font-size:40px; line-height:1;">
-                      <span style="white-space:nowrap; font-family:{{ fontB }}; font-size:{{ emB }}; color:{{ colorB }}; letter-spacing:{{ lsB }}; text-shadow:0 1px 0 rgba(255,255,255,0.3), 0 -1px 1px rgba(0,0,0,0.35);">{{ textB }}</span>
+                <div style="position:absolute; right:20px; top:20px; width:240px; border-radius:8px; overflow:hidden; background:#FFFFFF; box-shadow:inset 0 0 0 1px #EEEEEE, -8px 12px 48px 0 rgba(0,0,0,0.08);">
+                  <div style="height:112px; overflow:hidden; position:relative; background:#FFFFFF;"><img src="assets/chair-front.jpg" alt="" style="position:absolute; left:-234.4%; top:-236.5px; width:568.75%; height:auto; max-width:none; display:block;">
+                    <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); font-size:48px; line-height:1;">
+                      <span style="display:inline-flex; align-items:baseline; white-space:nowrap; font-family:{{ fontB }}; font-size:{{ emB }}; color:{{ colorB }}; letter-spacing:{{ lsB }}; text-shadow:0 1px 0 rgba(255,255,255,0.3), 0 -1px 1px rgba(0,0,0,0.35);"><span style="font-size:{{ sideB }};">{{ textLB }}</span><span style="font-size:{{ midB }};">{{ textMB }}</span><span style="font-size:{{ sideB }};">{{ textRB }}</span></span>
                     </div>
                   </div>
                   <div style="padding:12px; display:flex; flex-direction:row; justify-content:space-between; align-items:center; box-sizing:border-box;">
                     <span style="font-size:12px; font-weight:600; line-height:1.3; color:#4E4E4E;">Embroidered detail</span>
-                    <span style="font-size:10px; font-weight:400; line-height:1.5; color:#959595; text-transform:uppercase;">4× actual size</span>
                   </div>
                 </div>
               </div>
@@ -170,7 +171,7 @@
                     <sc-for list="{{ modesB }}" as="m" hint-placeholder-count="3">
                       <button type="button" aria-pressed="{{ m.pressed }}" onClick="{{ m.pick }}" style="min-height:56px; border:none; border-radius:8px; background:{{ m.bg }}; box-shadow:{{ m.ring }}; display:flex; flex-direction:column; gap:3px; align-items:center; justify-content:center; padding:8px; box-sizing:border-box; cursor:pointer; text-align:center;" style-hover="background:#F1F1F1;">
                         <span style="font-size:12px; font-weight:600; line-height:1.3; color:#242323;">{{ m.label }}</span>
-                        <span style="font-size:10px; font-weight:400; line-height:1.3; color:#828282; text-transform:uppercase;">{{ m.sub }}</span>
+                        <span style="font-size:10px; font-weight:{{ m.subWeight }}; line-height:1.3; color:{{ m.subColor }}; text-transform:uppercase;">{{ m.sub }}</span>
                       </button>
                     </sc-for>
                   </div>
@@ -195,8 +196,8 @@
                       <div style="display:grid; grid-template-columns:{{ gridColsB }}; gap:8px; align-self:stretch;">
                         <sc-for list="{{ stylesB }}" as="s" hint-placeholder-count="4">
                           <button type="button" aria-pressed="{{ s.pressed }}" onClick="{{ s.pick }}" style="height:60px; border:none; border-radius:8px; background:#FAFAFA; display:flex; flex-direction:column; gap:2px; align-items:center; justify-content:center; cursor:pointer; overflow:hidden; box-shadow:{{ s.ring }}; padding:0;" style-hover="background:#F1F1F1;">
-                            <span style="font-size:22px; line-height:1.1; display:flex; align-items:center; justify-content:center;">
-                              <span style="white-space:nowrap; font-family:{{ s.font }}; font-size:{{ s.em }}; letter-spacing:{{ s.ls }}; color:#242323;">{{ textB }}</span>
+                            <span style="font-size:{{ cardFsB }}; line-height:1.1; display:flex; align-items:center; justify-content:center;">
+                              <span style="display:inline-flex; align-items:baseline; white-space:nowrap; font-family:{{ s.font }}; font-size:{{ s.em }}; letter-spacing:{{ s.ls }}; color:#242323;"><span style="font-size:{{ sideB }};">{{ textLB }}</span><span style="font-size:{{ midB }};">{{ textMB }}</span><span style="font-size:{{ sideB }};">{{ textRB }}</span></span>
                             </span>
                             <span style="font-size:10px; font-weight:400; line-height:1.5; color:#828282; text-transform:uppercase;">{{ s.name }}</span>
                           </button>
@@ -216,7 +217,6 @@
                           </button>
                         </sc-for>
                       </div>
-                      <span style="font-size:10px; font-weight:400; line-height:1.5; color:#828282; text-transform:uppercase;">{{ threadNoteB }}</span>
                     </div>
 
                   </div>
@@ -250,6 +250,10 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#242323" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19.5 8.25-7.5 7.5-7.5-7.5"></path></svg>
                   </div>
                 </sc-for>
+              </div>
+
+              <div style="border-left:3px solid #C2A566; background:#FAF8F5; padding:20px 16px; box-sizing:border-box; display:flex; align-items:center; justify-content:center; align-self:stretch;">
+                <span style="font-family:Georgia, serif; font-size:17px; font-weight:400; line-height:1.4; color:#000000; text-align:center;">This item ships in <span style="color:#A68B5B;">June</span></span>
               </div>
 
               <div style="display:flex; flex-direction:column; gap:12px; align-self:stretch;">
@@ -346,23 +350,23 @@
 
         <div style="padding:35px 26px 0;">
           <div ref="{{ mPreviewRefB }}" style="width:323px; height:323px; border-radius:8px; overflow:hidden; position:relative; background:#FFFFFF; box-shadow:{{ mPreviewRingB }}; transition:box-shadow 200ms ease-out;">
-            <img src="assets/chair-main.png" alt="Personalized Chair" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;">
+            <img src="assets/chair-front.jpg" alt="Personalized Chair" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;">
             <sc-if value="{{ overlayB }}" hint-placeholder-val="{{ true }}">
               <div style="position:absolute; inset:0;">
-                <div style="position:absolute; left:45%; top:32%; transform:translate(-50%,-50%); font-size:16px; line-height:1;">
-                  <span style="white-space:nowrap; font-family:{{ fontB }}; font-size:{{ emB }}; color:{{ colorB }}; letter-spacing:{{ lsB }}; text-shadow:0 1px 0 rgba(255,255,255,0.3), 0 -1px 1px rgba(0,0,0,0.35);">{{ textB }}</span>
+                <div style="position:absolute; left:50%; top:30%; transform:translate(-50%,-50%); font-size:16px; line-height:1;">
+                  <span style="display:inline-flex; align-items:baseline; white-space:nowrap; font-family:{{ fontB }}; font-size:{{ emB }}; color:{{ colorB }}; letter-spacing:{{ lsB }}; text-shadow:0 1px 0 rgba(255,255,255,0.3), 0 -1px 1px rgba(0,0,0,0.35);"><span style="font-size:{{ sideB }};">{{ textLB }}</span><span style="font-size:{{ midB }};">{{ textMB }}</span><span style="font-size:{{ sideB }};">{{ textRB }}</span></span>
                 </div>
                 <div style="position:absolute; left:12px; top:12px; height:23px; border-radius:8px; background:#EDE5D2; padding:4px 8px; display:flex; align-items:center; justify-content:center; box-sizing:border-box;">
                   <span style="font-size:12px; font-weight:600; line-height:1; color:#775200; text-transform:capitalize;">Live Preview</span>
                 </div>
-                <div style="position:absolute; right:12px; bottom:12px; width:148px; border-radius:8px; overflow:hidden; background:#FFFFFF; box-shadow:inset 0 0 0 1px #EEEEEE, 0 4px 10px rgba(0,0,0,0.06);">
-                  <div style="height:72px; overflow:hidden; position:relative; background:#FFFFFF;"><img src="assets/chair-main.png" alt="" style="position:absolute; left:-147.2%; top:-102.4%; width:420%; height:420%; object-fit:cover; display:block;">
-                    <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); font-size:26px; line-height:1;">
-                      <span style="white-space:nowrap; font-family:{{ fontB }}; font-size:{{ emB }}; color:{{ colorB }}; letter-spacing:{{ lsB }};">{{ textB }}</span>
+                <div style="position:absolute; right:12px; top:12px; width:148px; border-radius:8px; overflow:hidden; background:#FFFFFF; box-shadow:inset 0 0 0 1px #EEEEEE, 0 4px 10px rgba(0,0,0,0.06);">
+                  <div style="height:48px; overflow:hidden; position:relative; background:#FFFFFF;"><img src="assets/chair-front.jpg" alt="" style="position:absolute; left:-179%; top:-121.3px; width:458.1%; height:auto; max-width:none; display:block;">
+                    <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); font-size:24px; line-height:1;">
+                      <span style="display:inline-flex; align-items:baseline; white-space:nowrap; font-family:{{ fontB }}; font-size:{{ emB }}; color:{{ colorB }}; letter-spacing:{{ lsB }};"><span style="font-size:{{ sideB }};">{{ textLB }}</span><span style="font-size:{{ midB }};">{{ textMB }}</span><span style="font-size:{{ sideB }};">{{ textRB }}</span></span>
                     </div>
                   </div>
-                  <div style="padding:8px 10px; box-sizing:border-box;">
-                    <span style="font-size:10px; font-weight:400; line-height:1.5; color:#828282; text-transform:uppercase;">Embroidered Detail 4×</span>
+                  <div style="padding:5px 10px; box-sizing:border-box;">
+                    <span style="font-size:10px; font-weight:400; line-height:1.5; color:#828282; text-transform:uppercase;">Embroidered Detail</span>
                   </div>
                 </div>
               </div>
@@ -372,7 +376,7 @@
         <div style="padding:24px 18px 0; display:flex; flex-direction:row; gap:15px; align-items:center;">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#242323" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"></path></svg>
           <sc-for list="{{ mthumbsB }}" as="t" hint-placeholder-count="3">
-            <div onClick="{{ t.pick }}" style="width:80px; height:80px; border-radius:4px; cursor:pointer; overflow:hidden; background:#FFFFFF; box-shadow:{{ t.ring }};"><img src="assets/chair-main.png" alt="" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+            <div onClick="{{ t.pick }}" style="width:80px; height:80px; border-radius:4px; cursor:pointer; overflow:hidden; background:#FFFFFF; box-shadow:{{ t.ring }};"><img src="assets/chair-front.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
           </sc-for>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#242323" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"></path></svg>
         </div>
@@ -440,7 +444,7 @@
                   <sc-for list="{{ modesB }}" as="m" hint-placeholder-count="3">
                     <button type="button" aria-pressed="{{ m.pressed }}" onClick="{{ m.pick }}" style="min-height:60px; border:none; border-radius:8px; background:{{ m.bg }}; box-shadow:{{ m.ring }}; display:flex; flex-direction:column; gap:3px; align-items:center; justify-content:center; padding:8px 6px; box-sizing:border-box; cursor:pointer; text-align:center;">
                       <span style="font-size:12px; font-weight:600; line-height:1.3; color:#242323;">{{ m.label }}</span>
-                      <span style="font-size:10px; font-weight:400; line-height:1.3; color:#828282; text-transform:uppercase;">{{ m.sub }}</span>
+                      <span style="font-size:10px; font-weight:{{ m.subWeight }}; line-height:1.3; color:{{ m.subColor }}; text-transform:uppercase;">{{ m.sub }}</span>
                     </button>
                   </sc-for>
                 </div>
@@ -462,8 +466,8 @@
                     <div style="display:grid; grid-template-columns:{{ gridColsB }}; gap:8px;">
                       <sc-for list="{{ stylesB }}" as="s" hint-placeholder-count="4">
                         <button type="button" aria-pressed="{{ s.pressed }}" onClick="{{ s.pick }}" style="height:62px; border:none; border-radius:8px; background:#FAFAFA; display:flex; flex-direction:column; gap:2px; align-items:center; justify-content:center; cursor:pointer; overflow:hidden; box-shadow:{{ s.ring }}; padding:0;">
-                          <span style="font-size:22px; line-height:1.1; display:flex; align-items:center; justify-content:center;">
-                            <span style="white-space:nowrap; font-family:{{ s.font }}; font-size:{{ s.em }}; letter-spacing:{{ s.ls }}; color:#242323;">{{ textB }}</span>
+                          <span style="font-size:{{ cardFsB }}; line-height:1.1; display:flex; align-items:center; justify-content:center;">
+                            <span style="display:inline-flex; align-items:baseline; white-space:nowrap; font-family:{{ s.font }}; font-size:{{ s.em }}; letter-spacing:{{ s.ls }}; color:#242323;"><span style="font-size:{{ sideB }};">{{ textLB }}</span><span style="font-size:{{ midB }};">{{ textMB }}</span><span style="font-size:{{ sideB }};">{{ textRB }}</span></span>
                           </span>
                           <span style="font-size:10px; font-weight:400; line-height:1.5; color:#828282; text-transform:uppercase;">{{ s.name }}</span>
                         </button>
@@ -482,7 +486,6 @@
                         </button>
                       </sc-for>
                     </div>
-                    <span style="font-size:10px; font-weight:400; line-height:1.5; color:#828282; text-transform:uppercase;">{{ threadNoteB }}</span>
                   </div>
 
                   <div onClick="{{ jumpPreviewB }}" style="display:flex; flex-direction:row; gap:6px; align-items:center; justify-content:center; align-self:stretch; padding:8px; border:1px solid #EEEEEE; border-radius:8px; box-sizing:border-box; cursor:pointer;" style-hover="opacity:0.7;">
@@ -520,6 +523,10 @@
               </sc-for>
             </div>
 
+            <div style="border-left:3px solid #C2A566; background:#FAF8F5; padding:20px 16px; box-sizing:border-box; display:flex; align-items:center; justify-content:center; align-self:stretch;">
+              <span style="font-family:Georgia, serif; font-size:17px; font-weight:400; line-height:1.4; color:#000000; text-align:center;">This item ships in <span style="color:#A68B5B;">June</span></span>
+            </div>
+
             <div style="display:flex; flex-direction:row; gap:12px; align-items:center;">
               <div style="width:106px; height:51px; overflow:hidden; border-radius:8px; box-shadow:inset 0 0 0 1px #242323; display:flex; flex-direction:row; flex-shrink:0;">
                 <button type="button" onClick="{{ dec }}" style="width:32px; border:none; background:#959595; display:flex; align-items:center; justify-content:center; align-self:stretch; cursor:pointer; padding:0;">
@@ -544,7 +551,7 @@
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3000}}'>
-const CHAIR = 'assets/chair-main.png';
+const CHAIR = 'assets/chair-front.jpg';
 const GALLERY = [
   CHAIR, CHAIR, CHAIR, CHAIR, CHAIR,
 ];
@@ -567,12 +574,12 @@ const FINISHES = [
 /* ── 1b: client spec ── */
 const MONO_MAX_B = 3;
 const TEXT_MAX_B = 9;
-const MONO_STYLE_B = { name: 'Heritage', font: "'Cinzel', Georgia, serif", em: '0.95em', ls: '0.14em' };
+const MONO_STYLE_B = { name: 'Monogram Serif', font: "'Monogram Serif', Georgia, serif", em: '1.15em', ls: '0.02em' };
 const TEXT_STYLES_B = [
-  { name: 'Roman',     font: "'Cormorant Garamond', Georgia, serif", em: '1.05em', ls: '0.01em' },
-  { name: 'Chantilly', font: "'Parisienne', cursive",                em: '1.2em',  ls: '0em' },
-  { name: 'Atelier',   font: "'Josefin Sans', Inter, sans-serif",    em: '0.86em', ls: '0.1em' },
-  { name: 'Marque',    font: "'Tangerine', cursive",                 em: '1.7em',  ls: '0em' },
+  /* Brantford and Avante are stand-ins until the font files arrive; Cursivo is the real font */
+  { name: 'Brantford', font: "'Cormorant Garamond', Georgia, serif", em: '1.05em', ls: '0.01em' },
+  { name: 'Avante',    font: "'Josefin Sans', Inter, sans-serif",    em: '0.86em', ls: '0.08em' },
+  { name: 'Cursivo',   font: "'Cursivo', 'Parisienne', cursive",     em: '1em',    ls: '0em' },
 ];
 const T = {
   Charcoal: { name: 'Charcoal', hex: '#2B2B2B' },
@@ -589,10 +596,13 @@ const CHAIRS_B = [
   { name: 'Fog',   hex: '#C9CCCD', threads: [T.Charcoal, T.Navy, T.Ivory, T.Camel] },
 ];
 const MODES_B = [
+  { key: 'text', label: 'Personalized Text', sub: '+$15' },
+  { key: 'mono', label: 'Monogram',          sub: '+$15' },
   { key: 'none', label: 'None',              sub: 'No embroidery' },
-  { key: 'mono', label: 'Monogram',          sub: '3 letters' },
-  { key: 'text', label: 'Personalized Text', sub: 'Up to 9' },
 ];
+/* Monogram: middle letter large, outer letters smaller (sizes relative to the style's em) */
+const MONO_SIDE_B = '0.78em';
+const MONO_MID_B = '1.4em';
 
 const TABS = [
   { label: 'Specifications', body: 'High-density foam core, no hard frame. Removable cover in cream. Greenguard Gold Certified, JPMA tested.' },
@@ -615,7 +625,7 @@ class Component extends DCLogic {
     qty: 1,
     open: [false, false, false],
     a: { name: 'Emilia', style: 0, finish: 0, img: 0 },
-    b: { mode: 'mono', mono: 'EJB', name: 'Emilia', style: 1, chair: 0, thread: 'Charcoal', img: 0 },
+    b: { mode: 'text', mono: 'EJB', name: 'Emilia', style: 2, chair: 0, thread: 'Charcoal', img: 0 },
     c: { name: 'Emilia', style: 0, finish: 0, img: 0, on: true, confirmed: false },
   };
 
@@ -742,15 +752,12 @@ class Component extends DCLogic {
       inputLabelB: isMonoB ? 'Monogram, exactly 3 letters' : 'Personalized text, up to 9 characters',
       placeholderB: isMonoB ? 'Initials, e.g. EJB' : "Baby's name",
       inputLsB: isMonoB ? '0.2em' : '0em',
-      helperB: isMonoB
-        ? (monoShortB
-            ? (MONO_MAX_B - bLen) + (MONO_MAX_B - bLen === 1 ? ' more letter needed' : ' more letters needed') + ' · Exactly 3'
-            : 'Exactly 3 letters · First, middle, last')
-        : 'Up to 9 characters · Letters, spaces, . \' -',
-      helperColorB: monoShortB ? '#775200' : '#828282',
-      gridColsB: isMonoB ? '1fr' : '1fr 1fr',
+      helperB: isMonoB ? 'Exactly 3 Letters' : 'Up to 9 Characters',
+      helperColorB: '#828282',
+      gridColsB: isMonoB ? '1fr' : 'repeat(3, minmax(0, 1fr))',
+      cardFsB: isMonoB ? '24px' : '18px',
       stylesB: isMonoB
-        ? [{ name: MONO_STYLE_B.name + ' · Monogram style', font: MONO_STYLE_B.font, em: MONO_STYLE_B.em, ls: MONO_STYLE_B.ls,
+        ? [{ name: MONO_STYLE_B.name, font: MONO_STYLE_B.font, em: MONO_STYLE_B.em, ls: MONO_STYLE_B.ls,
              ring: 'inset 0 0 0 1px #242323', pressed: 'true', pick: () => {} }]
         : TEXT_STYLES_B.map((x, i) => ({
             name: x.name, font: x.font, em: x.em, ls: x.ls,
@@ -765,7 +772,6 @@ class Component extends DCLogic {
         ring: x.name === fb.name ? 'inset 0 0 0 1px #191919' : 'inset 0 0 0 1px #EEEEEE',
         pick: () => this.set('b', { thread: x.name }),
       })),
-      threadNoteB: chairB.threads.length + ' thread colors for the ' + chairB.name + ' chair',
       chairsB: CHAIRS_B.map((x, i) => ({
         name: x.name,
         hex: x.hex,
@@ -778,6 +784,8 @@ class Component extends DCLogic {
       modesB: MODES_B.map((m) => ({
         label: m.label,
         sub: m.sub,
+        subColor: m.key === 'none' ? '#828282' : '#29845A',
+        subWeight: m.key === 'none' ? '400' : '700',
         pressed: m.key === b.mode ? 'true' : 'false',
         bg: m.key === b.mode ? '#FFFFFF' : '#FAFAFA',
         ring: m.key === b.mode ? 'inset 0 0 0 1.5px #242323' : 'inset 0 0 0 1px #D0D0D0',
@@ -786,6 +794,11 @@ class Component extends DCLogic {
       styleNameB: isMonoB ? MONO_STYLE_B.name : sb.name,
       finishNameB: fb.name,
       textB: valB || (isMonoB ? 'ABC' : 'Name'),
+      textLB: isMonoB ? (valB || 'ABC').charAt(0).toLowerCase() : '',
+      textMB: isMonoB ? (valB || 'ABC').charAt(1).toUpperCase() : (valB || 'Name'),
+      textRB: isMonoB ? (valB || 'ABC').charAt(2).toLowerCase() : '',
+      sideB: '1em', /* the monogram font draws side letters small itself */
+      midB: '1em',
       fontB: sb.font,
       emB: sb.em,
       lsB: sb.ls,
